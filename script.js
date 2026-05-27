@@ -303,7 +303,7 @@ function toggleMobileMenu() {
     const menuIcon = document.getElementById('mobile-menu-icon');
     
     navMenu.classList.toggle('active'); // 메뉴 창 토글
-    menuIcon.classList.toggle('open');  // 햄버거 아이콘 'X' 애니메이션 토글
+    //menuIcon.classList.toggle('open');  // 햄버거 아이콘 'X' 애니메이션 토글
 }
 
 // 2. 페이지 전환 함수 (개선됨)
