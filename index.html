@@ -23,17 +23,26 @@
                 <span>BlueHope</span>
             </div>
 
-            <ul class="nav-links" id="nav-menu">
-                <li><a href="#" onclick="showPage('home')">Home</a></li>
-                <li><a href="javascript:void(0)" onclick="showPage('info')">Symptoms</a></li>
-                <li><a href="javascript:void(0)" onclick="showPage('testing')">Detection</a></li>
-                <li><a href="javascript:void(0)" onclick="showPage('stages')">Stages</a></li>
-                <li><a href="javascript:void(0)" onclick="showPage('treatment')">Treatments</a></li>
-                <li><a href="javascript:void(0)" onclick="showPage('game')">Blue-Quest</a></li>
-                <ul class="nav-links">
-                    <li><a href="#" onclick="showPage('support')">Support</a></li>
-                </ul>
-            </ul>
+<ul class="nav-links" id="nav-menu">
+    <li><a href="javascript:void(0)" onclick="showPage('home')">Home</a></li>
+    
+    <!-- ⭐ [새로 추가된 드롭다운 구조] Information 메뉴 -->
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle">Information ▾</a>
+        <ul class="dropdown-menu">
+            <!-- 신규 생성할 페이지 -->
+            <li><a href="javascript:void(0)" onclick="showPage('about-prostate')">About Prostate</a></li>
+            <!-- 기존에 있던 페이지들 -->
+            <li><a href="javascript:void(0)" onclick="showPage('info')">Symptoms</a></li>
+            <li><a href="javascript:void(0)" onclick="showPage('testing')">Detection</a></li>
+            <li><a href="javascript:void(0)" onclick="showPage('stages')">Stages</a></li>
+            <li><a href="javascript:void(0)" onclick="showPage('treatment')">Treatments</a></li>
+        </ul>
+    </li>
+    
+    <li><a href="javascript:void(0)" onclick="showPage('game')">Blue-Quest</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('support')">Support</a></li>
+</ul>
 
             <div class="nav-actions">
                 <!-- 기존 testing 페이지 이동 대신 openCheckModal() 함수를 호출하도록 수정했습니다 -->
@@ -43,6 +52,71 @@
     </nav>
 
     <main>
+        
+<!-- ⭐ 수정 완료: 기존 showPage() 함수와 100% 호환되는 전립선 개요 페이지 -->
+        <section id="about-prostate" class="page section-padding">
+            <div class="container">
+                <h2 class="section-title">What is the Prostate?</h2>
+                <p class="section-intro">
+                    Understanding the basic anatomy and biology of the prostate gland is the foundation of protecting your reproductive and overall health.
+                </p>
+
+                <!-- Grid 카드 레이아웃 -->
+                <div class="grid" style="margin-bottom: 50px;">
+                    <div class="card">
+                        <div class="card-icon">🥜</div>
+                        <h3>The Walnut Gland</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">
+                            The prostate is a small gland, roughly the size of a walnut, found exclusively in men. It sits deep inside the pelvis, located directly underneath the bladder and surrounding the upper section of the urethra.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🧪</div>
+                        <h3>Reproductive Function</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">
+                            Its primary job is to secrete a specialized fluid that blends with sperm to create semen. This fluid protects sperm, boosts their motility, and provides an alkaline shield to ensure their survival.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🧬</div>
+                        <h3>How Cancer Develops</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">
+                            Prostate cancer begins when cells inside this gland undergo abnormal genetic changes and multiply uncontrollably. It is predominantly a slow-growing cancer that rarely shows obvious outer warning signs early on.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- info-split 레이아웃 -->
+                <div class="info-split">
+                    
+                    <!-- 왼쪽: prostate.png 이미지 배치 박스 -->
+                    <div class="info-box shadow-card content-fit">
+                        <h3>Anatomy Visualization</h3>
+                        <p style="margin-bottom: 15px; font-size: 0.9rem; color: #64748b;">
+                            Cross-section view showing the prostate's vital position around the urinary tract.
+                        </p>
+                        <div class="image-container" style="text-align: center;">
+                            <img src="prostate.png" alt="Prostate Anatomy Diagram" class="responsive-img" style="max-width: 100%; height: auto; border-radius: 8px;">
+                        </div>
+                    </div>
+
+                    <!-- 오른쪽: 연령에 따른 변화 및 경고 안내 박스 -->
+                    <div class="info-box accent-box">
+                        <h3>⚠️ The Aging Factor & Silent Growth</h3>
+                        <p style="margin-bottom: 15px;">
+                            As Kiwi men age, the prostate naturally undergoes a non-cancerous enlargement called Benign Prostatic Hyperplasia (BPH). While BPH itself is harmless, it squeezes the urethra in the exact same way a growing tumor might.
+                        </p>
+                        <p>
+                            Because early-stage prostate cancer develops silently without physical pain, you cannot rely on feeling sick to discover it. This is why regular clinical screenings remain absolutely critical.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
         <section id="home" class="page active home-layout">
             <div class="hero">
                 <div class="container">
@@ -529,7 +603,7 @@
                     advice.</p>
             </div>
 
-            <div class="footer-section">
+            <!-- <div class="footer-section">
                 <h4>Quick Links</h4>
                 <a href="javascript:void(0)" onclick="showPage('home')">Home</a>
                 <a href="javascript:void(0)" onclick="showPage('info')">Symptoms</a>
@@ -538,7 +612,7 @@
                 <a href="javascript:void(0)" onclick="showPage('treatment')">Treatments</a>
                 <a href="javascript:void(0)" onclick="showPage('game')">Blue-Quest</a>
                 <a href="javascript:void(0)" onclick="showPage('support')">Support</a>
-            </div>
+            </div> -->
 
             <div class="footer-section">
                 <h4>Disclaimer</h4>
