@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueHope | Prostate Cancer Support New Zealand</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="menu-toggle" id="mobile-menu-icon" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="logo" onclick="showPage('home')">
+                <img src="logo.png" alt="BlueHope Logo">
+                <span>BlueHope</span>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('info')">Symptoms</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('testing')">Detection</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('stages')">Stages</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('treatment')">Treatments</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('game')">Blue-Quest</a></li>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('support')">Support</a></li>
+                </ul>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- 기존 testing 페이지 이동 대신 openCheckModal() 함수를 호출하도록 수정했습니다 -->
+                <button class="btn-cta" onclick="openCheckModal()">GET CHECKED</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="page active home-layout">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-text">
+                        <h1>Protecting the <br><span class="highlight">Men of Aotearoa.</span></h1>
+                        <p>Leading the way in prostate cancer awareness, support, and early detection across New
+                            Zealand.</p>
+                        <div class="hero-btns">
+                            <button class="btn btn-primary" onclick="showPage('testing')">Detection Methods</button>
+                            <button class="btn btn-outline" onclick="showPage('info')">Learn Symptoms</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container quick-stats">
+                <div class="stat-card"><strong>1 in 8</strong> Kiwi men will be diagnosed.</div>
+                <div class="stat-card"><strong>4,000+</strong> Annual cases in NZ.</div>
+                <div class="stat-card"><strong>95%</strong> Survival rate if caught early.</div>
+            </div>
+        </section>
+
+        <section id="info" class="page section-padding">
+            <div class="container">
+                <h2 class="section-title">Symptoms & Warning Signs</h2>
+                <p class="section-intro">Early prostate cancer often has no symptoms at all. <strong>Do not wait for
+                        pain or warning signs to see your GP.</strong> Regular checks are vital.</p>
+
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">🚽</div>
+                        <h3>Early Urinary Changes</h3>
+                        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">As the tumor grows, it may
+                            press against the urethra, causing gradual alterations:</p>
+                        <ul class="content-list">
+                            <li><strong>Increased Frequency:</strong> Needing to urinate much more often, especially
+                                waking up multiple times during the night (Nocturia).</li>
+                            <li><strong>Hesitancy & Flow:</strong> Difficulty starting to urinate or experiencing a
+                                weak, slow, or interrupted stream.</li>
+                            <li><strong>Urgency:</strong> Sudden, intense urges to urinate that are hard to delay,
+                                occasionally leading to minor leakage.</li>
+                            <li><strong>Incomplete Emptying:</strong> A persistent feeling that your bladder isn't
+                                completely empty even immediately after urinating.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🩸</div>
+                        <h3>Advanced Physical Signs</h3>
+                        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">If the cancer spreads
+                            outside the prostate gland or invades surrounding tissues, it can cause severe signs:</p>
+                        <ul class="content-list">
+                            <li><strong>Haematuria:</strong> Finding visible blood in your urine or semen, which
+                                requires urgent medical investigation.</li>
+                            <li><strong>Erectile Dysfunction:</strong> Sudden or progressive difficulty achieving or
+                                maintaining an erection, or painful ejaculation.</li>
+                            <li><strong>Unexplained Weight Loss:</strong> Dropping weight rapidly without changes to
+                                your diet or exercise regime.</li>
+                            <li><strong>Deep Chronic Pain:</strong> Persistent, dull aches or stiffness in the lower
+                                back, hips, upper thighs, or pelvic floor region.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🦴</div>
+                        <h3>Metastatic Symptoms</h3>
+                        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">Signs that indicate the
+                            condition may have advanced and reached the bones or distant parts of the body:</p>
+                        <ul class="content-list">
+                            <li><strong>Severe Bone Pain:</strong> Intense, localized bone pain that doesn't subside,
+                                commonly in the spine or ribs.</li>
+                            <li><strong>Limb Weakness:</strong> Numbness or profound weakness in the legs or feet, often
+                                caused by spinal cord compression.</li>
+                            <li><strong>Chronic Fatigue:</strong> Feeling completely exhausted and drained of energy all
+                                the time, unrelated to lack of sleep.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testing" class="page section-padding">
+            <div class="container">
+                <h2 class="section-title">Screening & Detection Methods</h2>
+                <p class="section-intro">Early detection saves Kiwi lives. Understanding the different clinical tools
+                    used by doctors helps demystify the screening process.</p>
+
+                <div class="grid" style="margin-bottom: 50px;">
+                    <div class="card">
+                        <div class="card-icon">💉</div>
+                        <h3>1. The PSA Blood Test</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">The Prostate-Specific Antigen (PSA) test measures
+                            the level of a specific protein in your blood. Elevated levels can be a primary indicator of
+                            prostate abnormalities, including inflammation, enlargement, or cancer.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">👉</div>
+                        <h3>2. Digital Rectal Exam (DRE)</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">A quick physical examination where a GP feels the
+                            surface of the prostate gland through the rectum. The doctor checks for unusual hard spots,
+                            lumps, asymmetry, or changes in the overall size of the gland.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🧲</div>
+                        <h3>3. mpMRI Scan</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">Multi-parametric MRI creates high-definition 3D
+                            images of the prostate. If your PSA is high, New Zealand specialists use this non-invasive
+                            scan to look for suspicious areas before recommending further invasive tests.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔬</div>
+                        <h3>4. Prostate Biopsy</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">The definitive method to diagnose prostate cancer.
+                            Small tissue samples are collected using thin needles under ultrasound guidance. These cells
+                            are analysed under a microscope to calculate the exact Gleason Score.</p>
+                    </div>
+                </div>
+
+                <div class="info-split">
+                    <!-- 1. 왼쪽: 센터 찾기 박스 (결과가 나오면 아래로 자연스럽게 늘어남) -->
+                    <div class="info-box shadow-card special">
+                        <h3>📍 Find a Testing Centre</h3>
+                        <p>Select your local region to locate an approved screening clinic or find support networks near
+                            you in New Zealand.</p>
+
+                        <select class="custom-select" id="regionSelect">
+                            <option value="">Select NZ Region...</option>
+                            <option value="auckland">Auckland / Waitematā</option>
+                            <option value="wellington">Wellington / Capital & Coast</option>
+                            <option value="canterbury">Canterbury / Christchurch</option>
+                            <option value="otago">Otago / Southland</option>
+                        </select>
+
+                        <button class="btn btn-primary" style="width:100%" onclick="findClinics()">Search
+                            Clinic</button>
+                        <div id="clinic-result" style="margin-top: 15px;"></div>
+                    </div>
+
+                    <!-- 2. 오른쪽: 안내 박스 (📅 아이콘으로 변경 / 콘텐츠 크기만큼만 높이 차지) -->
+                    <div class="info-box accent-box content-fit">
+                        <h3>📅 When should I get checked?</h3>
+                        <p>If you are over 50, you should talk to your GP about having a regular PSA check. However, if
+                            you have a family history of prostate or breast cancer, you need to begin discussing
+                            screening with your doctor from age 40.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stages" class="page section-padding">
+            <div class="container">
+                <h2 class="section-title">Development Stages</h2>
+                <p class="section-intro">Staging determines how far the cancer has developed and helps doctors design
+                    the most effective management path using the clinical TNM system.</p>
+
+                <div class="stages-timeline">
+                    <div class="timeline-item">
+                        <div class="stage-num">I</div>
+                        <div class="stage-text">
+                            <h4>Stage 1: Early Localised (T1)</h4>
+                            <p>The cancer is small, completely confined within the prostate gland, and cannot be felt
+                                during a DRE or seen on standard imaging scans. It is typically discovered incidentally
+                                during procedures for benign enlargement or via a routine PSA blood test. The cells are
+                                usually low-grade.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="stage-num">II</div>
+                        <div class="stage-text">
+                            <h4>Stage 2: Established Localised (T2)</h4>
+                            <p>The tumor is larger and can now be felt as a hard lump during a physical digital rectal
+                                exam or mapped via an MRI scan. However, it remains entirely contained within the
+                                fibrous capsule of the prostate gland. It has not yet breached the outer borders or
+                                reached neighboring structures.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="stage-num">III</div>
+                        <div class="stage-text">
+                            <h4>Stage 3: Locally Advanced (T3)</h4>
+                            <p>The cancer cells have broken through the outer capsule layer of the prostate gland. The
+                                disease may have spread into the seminal vesicles—the glands next to the prostate that
+                                produce fluid for semen—or into the immediate surrounding connective tissues, but has
+                                not reached distant organs.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="stage-num">IV</div>
+                        <div class="stage-text">
+                            <h4>Stage 4: Advanced or Metastatic (T4 / N+ / M+)</h4>
+                            <p>This is advanced prostate cancer. The malignant cells have travelled through the
+                                lymphatic channels or bloodstream to other areas of the body. Most commonly, it
+                                metastasizes to nearby pelvic lymph nodes, distant bones (such as the spine, pelvis, or
+                                ribs), or major organs like the liver and lungs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="treatment" class="page section-padding">
+            <div class="container">
+                <h2 class="section-title">Treatments & Care in New Zealand</h2>
+                <p class="section-intro">Treatment paths are personalized based on age, lifestyle, health status, and
+                    cancer grade. Options range from active monitoring to advanced therapies.</p>
+
+                <div class="grid">
+                    <div class="t-card">
+                        <span class="badge">Monitoring</span>
+                        <h3>Active Surveillance</h3>
+                        <p>For low-risk, slow-growing cancers. Instead of rushing into immediate surgery or radiation,
+                            patients are monitored closely with regular PSA blood tests, repeated digital exams, and
+                            periodic biopsies. This effectively delays or avoids potential side effects like
+                            incontinence and erectile dysfunction while keeping the patient safe.</p>
+                    </div>
+
+                    <div class="t-card">
+                        <span class="badge">Surgical Intervention</span>
+                        <h3>Radical Prostatectomy</h3>
+                        <p>The complete surgical removal of the prostate gland, surrounding tissues, and some nearby
+                            lymph nodes. In New Zealand major centers, this is increasingly performed via
+                            **Robot-Assisted Laparoscopic Surgery (da Vinci)**, which allows high-precision navigation,
+                            smaller skin incisions, less blood loss, and faster recovery times.</p>
+                    </div>
+
+                    <div class="t-card">
+                        <span class="badge">Radiology</span>
+                        <h3>Radiation Therapies</h3>
+                        <p>High-energy beams are target-focused to eliminate or shrink the tumor. This includes
+                            **External Beam Radiation (EBRT)** delivered from a machine outside the body, or
+                            **Brachytherapy**, an internal approach where tiny radioactive seeds are permanently or
+                            temporarily implanted directly into the prostate tissue under anesthetic.</p>
+                    </div>
+
+                    <div class="t-card">
+                        <span class="badge">Systemic Therapy</span>
+                        <h3>Androgen Deprivation Therapy (ADT)</h3>
+                        <p>Prostate cancer cells rely heavily on male hormones (testosterone) to grow. ADT, or hormone
+                            therapy, utilizes regular injections or medications to stop your body from producing
+                            testosterone, or blocks it from reaching the cancer cells. It is commonly used alongside
+                            radiation or to manage advanced stages.</p>
+                    </div>
+
+                    <div class="t-card">
+                        <span class="badge">Advanced Oncology</span>
+                        <h3>Chemotherapy & Immunotherapy</h3>
+                        <p>When the cancer has spread to distant bones or organs and no longer responds to standard
+                            hormone blockades, specialized chemotherapy drugs are administered intravenously. These
+                            systematic medicines circulate throughout the entire body to target rapidly dividing cancer
+                            cells, slow growth, and alleviate pain.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="game" class="page section-padding">
+            <div class="container">
+                <div class="game-box">
+                    <h2>🎮 Blue-Quest Challenge</h2>
+                    <p style="margin-bottom: 20px; color: #64748b;">Test your knowledge! Right answers add 10 points,
+                        wrong answers deduct 1 point.</p>
+
+                    <div class="quiz-card"
+                        style="background: #f8fafc; padding: 30px; border-radius: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0;">
+                        <div id="quiz-progress"
+                            style="font-size: 0.85rem; color: var(--accent); font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">
+                            Question 1 of 10</div>
+                        <p id="question"
+                            style="font-size: 1.2rem; font-weight: 600; color: var(--primary); margin-bottom: 25px;">
+                            Loading question...</p>
+                        <div id="quiz-options"></div>
+                        <p id="quiz-feedback" style="margin-top: 15px; font-weight: 600; min-height: 24px;"></p>
+                    </div>
+
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; max-width: 400px; margin: 0 auto;">
+                        <div class="score-display" style="margin: 0;">Your Points: <span id="points">0</span></div>
+                        <button id="btn-restart" class="btn btn-outline" style="padding: 8px 16px; display: none;"
+                            onclick="restartQuiz()">Restart Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="support" class="page">
+            <section class="hero" style="padding: 60px 0; border-radius: 0 0 30px 30px;">
+                <div class="container" style="text-align: center;">
+                    <h1 style="font-size: 2.8rem; margin-bottom: 15px;">🤝 Support & Community</h1>
+                    <p style="color: #475569; max-width: 700px; margin: 0 auto 30px auto;">
+                        You are not alone. Access community networks, expert guidance, and personal stories to help
+                        navigate your prostate health journey in New Zealand.
+                    </p>
+
+                    <div
+                        style="max-width: 700px; margin: 0 auto; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.15); background: #000;">
+                        <video controls style="width: 100%; display: block;">
+                            <source src="Prostate Cancer - Not Just an Old Man's Disease - Danny Bedingfield.mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-padding">
+                <div class="container">
+                    <div class="info-split">
+
+ <div class="info-box shadow-card">
+    <h3 style="color: var(--primary); margin-bottom: 15px;">🌐 NZ Support Networks</h3>
+    <p style="margin-bottom: 20px; font-size: 0.95rem; color: #475569;">
+        Connecting with others who understand what you are going through can make a world of difference. Explore these vital resources and official websites:
+    </p>
+    
+    <ul class="content-list" style="margin-bottom: 25px;">
+        <li style="margin-bottom: 12px;">
+            <strong>Prostate Cancer Foundation NZ:</strong> Offers free nation-wide support groups, welfare grants, and peer support.
+            <br>
+            <a href="https://prostate.org.nz/" target="_blank" style="color: var(--accent); text-decoration: underline; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-top: 4px;">
+                Visit Official Website →
+            </a>
+        </li>
+        <li style="margin-bottom: 12px;">
+            <strong>Cancer Society New Zealand:</strong> Provides practical assistance, counseling, and free transport to local cancer treatments in Canterbury.
+            <br>
+            <a href="https://www.cancer.org.nz/" target="_blank" style="color: var(--accent); text-decoration: underline; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-top: 4px;">
+                Visit Official Website →
+            </a>
+        </li>
+        <li style="margin-bottom: 12px;">
+            <strong>Movember NZ:</strong> The leading charity changing the face of men's health, funding global prostate cancer research and local initiatives.
+            <br>
+            <a href="https://nz.movember.com/" target="_blank" style="color: var(--accent); text-decoration: underline; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-top: 4px;">
+                Visit Movember NZ →
+            </a>
+        </li>
+    </ul>
+
+    <div style="background: #eef6ff; padding: 15px; border-radius: 12px; border-left: 4px solid var(--accent);">
+        <p style="margin: 0; font-size: 0.85rem; color: var(--primary); font-weight: 600;">
+            📞 Need to talk to someone right now? <br>
+            Call the Prostate Cancer Support Helpline free at <a href="tel:0800477678" style="color: var(--accent); text-decoration: none;">0800 477 678</a>.
+        </p>
+    </div>
+</div>
+
+                        <div class="info-box accent-box content-fit"
+                            style="background: #ffffff; color: var(--text); border: 1px solid #e2e8f0; box-shadow: 0 10px 20px rgba(0,0,0,0.02);">
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">📩 Subscribe to Our Newsletter</h3>
+                            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 20px;">
+                                Stay informed. Subscribe to receive updates, recent prostate cancer research, and
+                                support event leaflets.
+                            </p>
+
+                            <form id="subscribeForm" onsubmit="validateForm(event)" novalidate>
+                                <div style="margin-bottom: 15px;">
+                                    <label
+                                        style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--primary);">Full
+                                        Name</label>
+                                    <input type="text" id="formName" placeholder="John Doe"
+                                        style="width:100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none;">
+                                    <small id="nameError"
+                                        style="color: #dc2626; font-size: 0.75rem; display: none; margin-top: 4px;"></small>
+                                </div>
+
+                                <div style="margin-bottom: 15px;">
+                                    <label
+                                        style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--primary);">Email
+                                        Address</label>
+                                    <input type="email" id="formEmail" placeholder="example@domain.com"
+                                        style="width:100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none;">
+                                    <small id="emailError"
+                                        style="color: #dc2626; font-size: 0.75rem; display: none; margin-top: 4px;"></small>
+                                </div>
+
+                                <div style="margin-bottom: 20px;">
+                                    <label
+                                        style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--primary);">Phone
+                                        Number</label>
+                                    <input type="tel" id="formPhone" placeholder="021 234 5678"
+                                        style="width:100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none;">
+                                    <small id="phoneError"
+                                        style="color: #dc2626; font-size: 0.75rem; display: none; margin-top: 4px;"></small>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary"
+                                    style="width:100%; font-weight: 700; padding: 12px;">Subscribe Now</button>
+                            </form>
+
+                            <div id="formSuccess"
+                                style="display: none; margin-top: 15px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 14px; border-radius: 8px; font-size: 0.9rem; text-align: center;">
+                                🎉 Thank you for subscribing! Our updates will be sent to your inbox.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- [여기서부터 새로 추가된 자가진단 모달 팝업 구조입니다] -->
+    <div id="checkModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📋 Quick Symptom Self-Check</h3>
+                <span class="close-modal" onclick="closeCheckModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-notice">This check is a tool for awareness and <strong>not a medical diagnosis</strong>.
+                    Please tick any symptoms you are currently experiencing:</p>
+                <form id="selfCheckForm">
+                    <label class="check-item">
+                        <input type="checkbox" name="symptom" value="frequency">
+                        <span>Waking up multiple times a night to urinate (Nocturia)</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" name="symptom" value="stream">
+                        <span>Weak, slow, or frequently interrupted urinary flow</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" name="symptom" value="urgency">
+                        <span>Sudden, intense urges to urinate with occasional leakage</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" name="symptom" value="blood">
+                        <span>Visible blood in urine or semen (Haematuria)</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" name="symptom" value="pain">
+                        <span>Persistent, dull aches in the lower back, hips, or pelvis</span>
+                    </label>
+                    <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 15px;"
+                        onclick="evaluateSelfCheck()">Submit Analysis</button>
+                </form>
+                <div id="checkResult" class="check-result-box" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+    <!-- [새로 추가된 모달 구조 끝] -->
+
+    <div class="chat-launcher" onclick="toggleChat()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span>BlueBot AI</span>
+            <button onclick="toggleChat()"
+                style="background:none; border:none; color:white; cursor:pointer;">&times;</button>
+        </div>
+        <div class="chat-body">
+            <p class="bot-msg">Kia Ora! I'm BlueBot. Ask me anything about prostate health.</p>
+        </div>
+        <!-- 기존 chat-footer를 찾아서 이 코드로 교체하세요 -->
+        <div class="chat-footer"
+            style="display: flex; gap: 8px; padding: 10px; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+            <input type="text" id="chatInput" placeholder="Ask a question..."
+                style="flex: 1; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; outline: none;"
+                onkeypress="handleChatKeyPress(event)">
+            <button onclick="sendChatMessage()"
+                style="background: #0f172a; border: none; color: white; padding: 8px 14px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                <!-- 종이비행기 모양 SVG 아이콘 -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Prostate Health Guide</h3>
+                <p>This website provides educational information only and is not a substitute for professional medical
+                    advice.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="javascript:void(0)" onclick="showPage('home')">Home</a>
+                <a href="javascript:void(0)" onclick="showPage('info')">Symptoms</a>
+                <a href="javascript:void(0)" onclick="showPage('testing')">Detection</a>
+                <a href="javascript:void(0)" onclick="showPage('stages')">Stages</a>
+                <a href="javascript:void(0)" onclick="showPage('treatment')">Treatments</a>
+                <a href="javascript:void(0)" onclick="showPage('game')">Blue-Quest</a>
+                <a href="javascript:void(0)" onclick="showPage('support')">Support</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Disclaimer</h4>
+                <p>Always consult a healthcare professional for medical concerns.</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Prostate Health Guide. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
