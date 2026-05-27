@@ -319,7 +319,7 @@ function showPage(pageId) {
     }
 
     // [중요] 페이지 이동 후 모바일 메뉴 자동 닫기
-    const navMenu = document.getElementById('nav-menu');
+
     const menuIcon = document.getElementById('mobile-menu-icon');
     
     if (navMenu.classList.contains('active')) {
@@ -329,6 +329,13 @@ function showPage(pageId) {
 
     // 화면 최상단으로 스크롤
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    // 기존 showPage 함수 내 아랫부분
+const navMenu = document.getElementById('nav-menu');
+if (navMenu) {
+    navMenu.classList.remove('active'); 
+    navMenu.classList.remove('show');   
+    navMenu.classList.remove('open');   
+}
 }
 
 // 모달 열기 함수
@@ -627,3 +634,27 @@ document.addEventListener('DOMContentLoaded', () => {
         isResizing = false;
     });
 });
+function showPage(pageId) {
+    // [기존 코드] 모든 페이지 숨기고 선택한 페이지 보여주는 로직들...
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+    
+    const activePage = document.getElementById(pageId);
+    if (activePage) {
+        activePage.classList.add('active');
+    }
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // ==========================================================================
+    // ⭐ [추가할 로직] 메뉴 선택 시 모바일 네비게이션 자동 닫기
+    // ==========================================================================
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (navMenu) {
+        // 나연님의 코드에서 모바일 메뉴를 열 때 쓰던 클래스명(예: 'active', 'show', 'open')을 지워줍니다.
+        navMenu.classList.remove('active'); 
+        navMenu.classList.remove('show');   
+        navMenu.classList.remove('open');   
+    }
+}
